@@ -1,0 +1,17 @@
+Surface,Controller,Stopping distance (m),Stopping time (s),Slip RMSE,Wheel locked
+Dry asphalt,No ABS,50.78,3.56,0.85,True
+Dry asphalt,Bang-bang ABS,41.24,2.76,0.071,False
+Dry asphalt,PID ABS,36.35,2.44,0.02,False
+Dry asphalt,Fuzzy ABS,36.06,2.43,0.012,False
+Wet asphalt,No ABS,76.44,5.33,0.85,True
+Wet asphalt,Bang-bang ABS,65.56,4.43,0.098,False
+Wet asphalt,PID ABS,50.34,3.46,0.009,False
+Wet asphalt,Fuzzy ABS,50.83,3.49,0.03,False
+Snow,No ABS,302.23,21.0,0.85,True
+Snow,Bang-bang ABS,215.74,15.51,0.085,False
+Snow,PID ABS,213.08,14.9,0.127,True
+Snow,Fuzzy ABS,213.65,15.01,0.056,False
+Ice,No ABS,786.84,54.64,0.85,True
+Ice,Bang-bang ABS,787.19,54.68,0.028,False
+Ice,PID ABS,786.88,54.64,0.053,True
+Ice,Fuzzy ABS,787.03,54.65,0.021,False
