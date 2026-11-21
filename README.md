@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚗 Fuzzy Logic Anti-Lock Braking System
+#  Fuzzy Logic Anti-Lock Braking System
 
 **Stopping a car from 100 km/h without locking the wheels, using a 25-rule fuzzy controller.**
 
@@ -17,25 +17,25 @@
 
 ---
 
-## ⚡ Results at a glance
+##  Results at a glance
 
 | | No ABS | Bang-bang ABS | PID ABS | **Fuzzy ABS** |
 |---|:---:|:---:|:---:|:---:|
 | Stopping distance, dry asphalt | 50.8 m | 41.2 m | 36.4 m | **36.1 m** |
 | Stopping distance, wet asphalt | 76.4 m | 65.6 m | **50.3 m** | 50.8 m |
 | Stopping distance, snow | 302.2 m | 215.7 m | **213.1 m** | 213.7 m |
-| Wheel locks on any surface? | ❌ Always | ✅ Never | ⚠️ Snow & ice | ✅ **Never** |
+| Wheel locks on any surface? |  Always |  Never |  Snow & ice |  **Never** |
 | Sudden dry → ice switch | 433.6 m, locks | 383.7 m | 333.3 m, locks | **327.7 m, no lock** |
 
-- 🛑 **29% shorter** stopping distance on dry asphalt and **34% shorter** on wet asphalt, compared with no ABS
-- 🎯 **22% shorter** than a classic bang-bang ABS on wet roads
-- 🧊 The **only controller** that kept the wheel rolling when the road suddenly turned to ice, and the shortest stop in that test
+-  **29% shorter** stopping distance on dry asphalt and **34% shorter** on wet asphalt, compared with no ABS
+-  **22% shorter** than a classic bang-bang ABS on wet roads
+-  The **only controller** that kept the wheel rolling when the road suddenly turned to ice, and the shortest stop in that test
 
 > PID and fuzzy perform about the same on a steady road. Fuzzy's real advantage shows up when conditions change suddenly, which is exactly when ABS matters most.
 
 ---
 
-## 🧠 How it works
+##  How it works
 
 ```mermaid
 flowchart LR
@@ -90,7 +90,7 @@ Tyre grip depends on **wheel slip** λ, meaning how much slower the wheel turns 
 
 ---
 
-## 📊 Results in detail
+##  Results in detail
 
 ### Wheel speed vs vehicle speed
 Without ABS the wheel speed drops to zero almost instantly (locked). With fuzzy ABS it tracks just below vehicle speed: that small gap is the controlled slip.
@@ -103,7 +103,7 @@ Bang-bang ABS oscillates around the target, PID and fuzzy settle smoothly, and n
 ### Stopping distance on all surfaces
 <p align="center"><img src="results/5_stopping_distance.png" width="75%"></p>
 
-### 🧊 Robustness: the road turns to ice mid-stop
+###  Robustness: the road turns to ice mid-stop
 All controllers were tuned on dry asphalt and then hit with a sudden switch to ice at t = 1 s, with no retuning. The fuzzy controller's fast-release design catches the wheel before it locks.
 <p align="center"><img src="results/6_dry_to_ice.png" width="75%"></p>
 
@@ -111,7 +111,7 @@ Full numbers: [`results/summary.csv`](results/summary.csv)
 
 ---
 
-## 🚀 Run it yourself
+##  Run it yourself
 
 **No installation:** click the **Open in Colab** badge at the top, then **Runtime → Run all**. It takes about a minute.
 
@@ -132,7 +132,7 @@ fuzzy-abs/
 
 ---
 
-## 🛠️ Key engineering decisions
+##  Key engineering decisions
 
 | Decision | Why |
 |---|---|
@@ -144,14 +144,14 @@ fuzzy-abs/
 | **Brake actuator lag τ = 10 ms** | Real hydraulics can't change pressure instantly; without this the results would be unrealistically good |
 | **Simulation step 0.1 ms, controller 10 ms** | Wheel dynamics are stiff at low speed; a small step keeps the integration stable while the controller runs at a realistic ECU rate |
 
-## ✅ Model validation
+##  Model validation
 - **Sanity check vs hand calculation:** without ABS on dry asphalt, the locked-wheel stop should be v₀²/(2μg) with μ(λ=1) = 0.76, giving **51.8 m**. The simulation gives **50.8 m** (the small difference is the 0.1 s before lock, when grip is higher).
 - **Friction peaks** match published Burckhardt values: dry μ = 1.17 at λ = 0.17, wet μ = 0.80 at λ = 0.13.
 - **Fair comparison:** all four controllers share the same vehicle, actuator, surfaces and target slip; only the control law changes.
 
 ---
 
-## 🔍 Limitations & next steps
+##  Limitations & next steps
 - **Quarter-car model:** one wheel only, with no load transfer between axles, suspension or steering. Next step: a full-vehicle model.
 - **Fixed target slip (0.15):** on snow and ice the grip peak sits at lower slip, so a **surface-estimating adaptive target** would shorten stops further.
 - **Ice results look identical** across controllers because the ice friction curve is almost flat beyond its peak. The benefit on ice is steering control, not distance.
@@ -159,7 +159,7 @@ fuzzy-abs/
 
 ---
 
-## 👩‍💻 Author
+##  Author
 **Bipasha Deka**, Mechanical Engineering, Tezpur University
 [LinkedIn](https://www.linkedin.com/in/bipasha-deka/) · [GitHub](https://github.com/bipashadeka)
 
