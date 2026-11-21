@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚗 Fuzzy Logic Anti-Lock Braking System
+#  Fuzzy Logic Anti-Lock Braking System
 
 **Stopping a car from 100 km/h without locking the wheels, using a 25-rule fuzzy controller.**
 
@@ -17,7 +17,7 @@
 
 ---
 
-## ⚡ Results at a glance
+##  Results at a glance
 
 | | No ABS | Bang-bang ABS | PID ABS | **Fuzzy ABS** |
 |---|:---:|:---:|:---:|:---:|
